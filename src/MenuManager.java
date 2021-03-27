@@ -4,7 +4,7 @@ public class MenuManager {
 	public static void main(String[] args)  {
 		int num = 0;
 		Scanner input = new Scanner(System.in);
-		
+
 		while (num != 6) {
 			System.out.println("1. Add Movies");
 			System.out.println("2. Delete Movies");
@@ -16,32 +16,50 @@ public class MenuManager {
 			num = input.nextInt();
 			switch(num) {
 			case 1:
-				System.out.print("Movie Number:");
-				int movienumber = input.nextInt();
-				System.out.print("Movie Name:");
-				String moviename = input.next();
-				System.out.println(movienumber+", "+moviename);
+				addMovie();
+				
 				break;
-				
-			case 2:
-				System.out.print("Delete Movie Number:");
-				int movienumber2 = input.nextInt();
-				System.out.print("Delete Movie Name:");
-				String moviename2 = input.next();
-				break;
-				
-			case 3:
-				System.out.print("Modify Movie Number:");
-				movienumber = input.nextInt();
-				System.out.print("Modify Movie Name:");
-				moviename = input.next();
-				System.out.println(movienumber+", "+moviename);
-				continue;	
-				
-			case 4:
-				System.out.print("Movie Number:");
-				int movienumbr4 = input.nextInt();
-			}
-	}
 
-}}
+			case 2:
+				deleteMovie();
+				break;
+
+			case 3:
+				editMovie();
+				continue;	
+
+			case 4:
+				viewMovie();
+			}
+		}
+	}
+	public static void addMovie() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Movie Number");
+		int movieNumber = input.nextInt();
+		System.out.print("Movie Name");
+		String movieName = input.next();
+		System.out.println(movieNumber+","+movieName);
+	}
+	public static void deleteMovie() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Movie Number");
+		int movieNumber = input.nextInt();
+		System.out.print("Movie Name");
+		String movieName = input.next();
+	}
+	public static void editMovie() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Movie Number");
+		int movieNumber = input.nextInt();
+		System.out.print("Movie Name");
+		String movieName = input.next();
+		
+		}
+	public static void viewMovie() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Movie Number");
+		int movieNumber = input.nextInt();
+	
+	}
+}
