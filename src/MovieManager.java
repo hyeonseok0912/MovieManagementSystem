@@ -27,7 +27,7 @@ public class MovieManager {
          }
       }
       
-      if (list.size() == 0) { //list의 크기 아무것도 없으면 0
+      if (list.size() == 0) {
        
          name = menumanager.name();
         
