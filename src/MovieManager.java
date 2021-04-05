@@ -10,7 +10,6 @@ public class MovieManager {
    int number;
    String name;
 
-
    public void addMovie() {   
 
       int movienumber = menumanager.number(); 
