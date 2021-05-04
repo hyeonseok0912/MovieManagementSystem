@@ -60,4 +60,40 @@ public class MenuManager {
       String age = input.next();
       return age;
    }
+   
+   
+   
+   public int number(String update) {
+      System.out.print(update + "Movie Number");
+      int number = input.nextInt();
+      return number;
+   }
+
+   public String name(String update) {
+      System.out.print(update + "Movie Name");
+      String name = input.next();
+      return name;
+   }
+
+   public int genre(String update) {
+      System.out.println(update + "장르를 입력하시오.");
+      System.out.println("1. Horror   2. Romance   3. Thriller   4.SF");
+      int genre_number = input.nextInt();
+      return genre_number;
+   }
+
+   public String age(String update) {
+      System.out.println(update + "연령을 입력하시오.");
+      String age = input.next();
+      return age;
+   }
+}
+
+class Age extends MenuManager {
+   
+   @Override
+   public String age() {
+      String age = "전체 이용가";
+      return age;
+   }
 }

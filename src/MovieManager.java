@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
-public class MovieManager extends MovieKind {
+public class MovieManager {
    
    ArrayList<Movie> list = new ArrayList<Movie>();
    MenuManager menumanager = new MenuManager();
+   Age override = new Age();
 
    int number;
    String name;
@@ -28,11 +29,10 @@ public class MovieManager extends MovieKind {
          if(genre_number == 1 || genre_number ==2) {
             age = menumanager.age();
          } else {
-            age = "전체 이용가";
+            age = override.age();
          }
-         this.setAge(age);
          name = menumanager.name();
-         Movie movie = new Movie(name, movienumber, genre[genre_number - 1], this.getAge());
+         Movie movie = new Movie(name, movienumber, genre[genre_number - 1], age);
          list.add(movie);
       }
    }
@@ -55,20 +55,22 @@ public class MovieManager extends MovieKind {
    }
 
    public void editMovie() {
+      
+      String update = "Update ";
+      
       boolean check = true;
-      int movienumber = menumanager.number();
+      int movienumber = menumanager.number(update);
       for (int i = 0; i < list.size(); i++) {
          if (movienumber == list.get(i).number) {
-            number = menumanager.number();
-            genre_number = menumanager.genre();
+            number = menumanager.number(update);
+            genre_number = menumanager.genre(update);
             if(genre_number == 1 || genre_number ==2) {
-               age = menumanager.age();
+               age = menumanager.age(update);
             } else {
-               age = "전체 이용가";
+               age = override.age();
             }
-            this.setAge(age);
-            name = menumanager.name();
-            Movie movie = new Movie(name, number, genre[genre_number - 1], this.getAge());
+            name = menumanager.name(update);
+            Movie movie = new Movie(name, number, genre[genre_number - 1], age);
             list.set(i, movie);
             check = false;
             System.out.println("수정 완료했습니다.");
