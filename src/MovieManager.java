@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class MovieManager {
+public class MovieManager implements MovieInterface {
    
    ArrayList<Movie> list = new ArrayList<Movie>();
    MenuManager menumanager = new MenuManager();
