@@ -15,8 +15,17 @@ public class MenuManager {
          System.out.println("4. View Movies");
          System.out.println("5. Exit");
          System.out.println("Select one number between 1 - 5 : ");
-         int num = input.nextInt();
-         switch (num) {
+
+         int number = 0;
+
+         try {
+            String num = input.next();
+            number = Integer.parseInt(num);
+         } catch (NumberFormatException e) {
+            System.out.println("Number format exception");
+         }
+
+         switch (number) {
          case 1:
             moviemanager.addMovie();
             break;
@@ -31,6 +40,9 @@ public class MenuManager {
             break;
          case 5:
             start = false;
+            break;
+         default:
+            System.out.println("Select one number between 1 - 5");
             break;
          }
       }
@@ -60,9 +72,7 @@ public class MenuManager {
       String age = input.next();
       return age;
    }
-   
-   
-   
+
    public int number(String update) {
       System.out.print(update + "Movie Number");
       int number = input.nextInt();
@@ -90,7 +100,7 @@ public class MenuManager {
 }
 
 class Age extends MenuManager {
-   
+
    @Override
    public String age() {
       String age = "전체 이용가";
