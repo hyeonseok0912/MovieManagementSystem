@@ -6,6 +6,8 @@ public class MenuManager {
    public static void main(String[] args) {
 
       MovieManager moviemanager = new MovieManager();
+      LogFileLoad log = new LogFileLoad();
+
       boolean start = true;
 
       while (start) {
@@ -14,7 +16,8 @@ public class MenuManager {
          System.out.println("3. Edit Movies");
          System.out.println("4. View Movies");
          System.out.println("5. Exit");
-         System.out.println("Select one number between 1 - 5 : ");
+         System.out.println("6. FileLog");
+         System.out.println("Select one number between 1 - 6 : ");
 
          int number = 0;
 
@@ -41,8 +44,11 @@ public class MenuManager {
          case 5:
             start = false;
             break;
+         case 6:
+            log.FileLoad();
+            break;
          default:
-            System.out.println("Select one number between 1 - 5");
+            System.out.println("Select one number between 1 - 6");
             break;
          }
       }

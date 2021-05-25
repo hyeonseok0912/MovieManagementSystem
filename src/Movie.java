@@ -1,16 +1,14 @@
 public class Movie extends MovieKind {
    String name;
    int number;
+   String date;
 
-   public Movie() {
-
-   }
-
-   public Movie(String name, int number, String genre, String age) {
+   public Movie(String name, int number, String genre, String age, String date) {
       this.name = name;
       this.number = number;
       this.genre = genre;
       this.age = age;
+      this.date = date;
    }
 
    public String getName() {
@@ -29,11 +27,20 @@ public class Movie extends MovieKind {
       this.number = number;
    }
 
+   public String getDate() {
+      return date;
+   }
+
+   public void setDate(String date) {
+      this.date = date;
+   }
+
    public void printPlaydata() {
       System.out.println("영화 장르 : " + genre);
       System.out.println("영화 번호 : " + number);
       System.out.println("영화 제목 : " + name);
       System.out.println("연    령 : " + age);
+      System.out.println("날    짜 : " + date);
       System.out.println("====================");
    }
 }
