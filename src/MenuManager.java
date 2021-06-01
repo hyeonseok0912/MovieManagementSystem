@@ -1,57 +1,72 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-public class MenuManager {
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class MenuManager extends JFrame {
+
    static Scanner input = new Scanner(System.in);
+
+   JPanel panel;
+   JButton button1, button2, button3, button4, button5, button6;
+   JLabel label1, label2;
+   JTextField text;
+
+   public MenuManager() {
+      setSize(350, 700);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setTitle("Movie");
+      setLocationRelativeTo(null);
+
+      panel = new JPanel();
+      label1 = new JLabel("Select one number between 1 - 6");
+      button1 = new JButton("Add Movies");
+      button2 = new JButton("Delete Movies");
+      button3 = new JButton("Edit Movies");
+      button4 = new JButton("View Movies");
+      button5 = new JButton("Exit");
+      button6 = new JButton("FileLog");
+
+      label1.setPreferredSize(new Dimension(300, 100));
+      button1.setPreferredSize(new Dimension(300, 50));
+      button2.setPreferredSize(new Dimension(300, 50));
+      button3.setPreferredSize(new Dimension(300, 50));
+      button4.setPreferredSize(new Dimension(300, 50));
+      button5.setPreferredSize(new Dimension(300, 50));
+      button6.setPreferredSize(new Dimension(300, 50));
+
+      panel.add(label1);
+      panel.add(button1);
+      panel.add(button2);
+      panel.add(button3);
+      panel.add(button4);
+      panel.add(button5);
+      panel.add(button6);
+
+      button1.addActionListener((ActionListener) new ActionListener() {
+
+         public void actionPerformed(ActionEvent e) {
+            new Add_Movies();
+         }
+      });
+
+      add(panel);
+      setVisible(true);
+   }
 
    public static void main(String[] args) {
 
-      MovieManager moviemanager = new MovieManager();
-      LogFileLoad log = new LogFileLoad();
+      MenuManager f = new MenuManager();
 
-      boolean start = true;
-
-      while (start) {
-         System.out.println("1. Add Movies");
-         System.out.println("2. Delete Movies");
-         System.out.println("3. Edit Movies");
-         System.out.println("4. View Movies");
-         System.out.println("5. Exit");
-         System.out.println("6. FileLog");
-         System.out.println("Select one number between 1 - 6 : ");
-
-         int number = 0;
-
-         try {
-            String num = input.next();
-            number = Integer.parseInt(num);
-         } catch (NumberFormatException e) {
-            System.out.println("Number format exception");
-         }
-
-         switch (number) {
-         case 1:
-            moviemanager.addMovie();
-            break;
-         case 2:
-            moviemanager.deleteMovie();
-            break;
-         case 3:
-            moviemanager.editMovie();
-            break;
-         case 4:
-            moviemanager.viewMovie();
-            break;
-         case 5:
-            start = false;
-            break;
-         case 6:
-            log.FileLoad();
-            break;
-         default:
-            System.out.println("Select one number between 1 - 6");
-            break;
-         }
-      }
    }
 
    public int number() {
@@ -102,6 +117,75 @@ public class MenuManager {
       System.out.println(update + "연령을 입력하시오.");
       String age = input.next();
       return age;
+   }
+}
+
+class Add_Movies extends JFrame {
+   JPanel panel;
+   JButton button;
+   JLabel label1, label2, label3, label4;
+   JTextField text1, text2, text3;
+   JCheckBox check1, check2, check3, check4;
+
+   public Add_Movies() {
+      setSize(350, 700);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setTitle("Movie");
+      setLocationRelativeTo(null);
+
+      panel = new JPanel();
+
+      label1 = new JLabel("Movie Number.");
+      text1 = new JTextField(10);
+
+      label2 = new JLabel("Movie Name.");
+      text2 = new JTextField(10);
+
+      label3 = new JLabel("Choose a genre.");
+      check1 = new JCheckBox("1. Horror", false);
+      check2 = new JCheckBox("2. Romance", false);
+      check3 = new JCheckBox("3. Thriller", false);
+      check4 = new JCheckBox("4. SF", false);
+
+      label4 = new JLabel("Please enter your age.");
+      text3 = new JTextField(10);
+
+      button = new JButton("Exit");
+
+      label1.setPreferredSize(new Dimension(150, 50));
+      label2.setPreferredSize(new Dimension(150, 50));
+      label3.setPreferredSize(new Dimension(300, 50));
+      label4.setPreferredSize(new Dimension(150, 50));
+
+      text1.setPreferredSize(new Dimension(150, 30));
+      text2.setPreferredSize(new Dimension(150, 30));
+      text3.setPreferredSize(new Dimension(150, 30));
+
+      check1.setPreferredSize(new Dimension(150, 50));
+      check2.setPreferredSize(new Dimension(150, 50));
+      check3.setPreferredSize(new Dimension(150, 50));
+      check4.setPreferredSize(new Dimension(150, 50));
+
+      button.setPreferredSize(new Dimension(300, 50));
+
+      panel.add(label1);
+      panel.add(text1);
+
+      panel.add(label2);
+      panel.add(text2);
+
+      panel.add(label3);
+      panel.add(check1);
+      panel.add(check2);
+      panel.add(check3);
+      panel.add(check4);
+
+      panel.add(label4);
+      panel.add(text3);
+      panel.add(button);
+
+      add(panel);
+      setVisible(true);
    }
 }
 
