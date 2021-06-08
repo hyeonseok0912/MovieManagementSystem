@@ -1,3 +1,4 @@
+package MoiveManagementSystem;
 public class Movie extends MovieKind {
    String name;
    int number;

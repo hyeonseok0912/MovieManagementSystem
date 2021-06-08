@@ -1,3 +1,4 @@
+package MoiveManagementSystem;
 public class MovieKind {
    String genre;
    String age;

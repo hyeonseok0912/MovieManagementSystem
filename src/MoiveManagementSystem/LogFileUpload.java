@@ -1,3 +1,4 @@
+package MoiveManagementSystem;
 import java.io.File;
 import java.io.FileWriter;
 
@@ -29,12 +30,12 @@ public class LogFileUpload extends Movie{
             + "연    령 : " + age + "\n"
             + "날    짜 : " + date + "\n"
             + "====================" + "\n";
-      String fileName = "C:\\Users/User/workspace/Log.txt";
+      String filePath = "C:\\Users/User/workspace/Log.txt";
 
       try {
 
          
-         File file = new File(fileName);
+         File file = new File(filePath);
 
          
          FileWriter fw = new FileWriter(file, true);

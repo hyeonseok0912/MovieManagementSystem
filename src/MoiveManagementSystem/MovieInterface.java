@@ -1,3 +1,4 @@
+package MoiveManagementSystem;
 
 public interface MovieInterface {
 	
